@@ -1,4 +1,8 @@
 -- AUTO BANK ROBBERY - LUMINOSITY AUTO ROB
+-- Automatically reload script after teleport (exploit feature)
+if queue_on_teleport then
+    queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/Jshawk/luminosityautorob/refs/heads/main/Luminosity%20AutoRob.lua?token=GHSAT0AAAAAADQNUXKHIC6Y2EFM4KPLXWPA2KVLVBQ"))()')
+end
 local LUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jshawk/luminosity-lite/refs/heads/main/Luminosity%20Lite%20UI.lua"))()
 -- OR if you have it locally: local LUI = require(script.Parent.AutorubUILib)
 
@@ -348,32 +352,6 @@ local function autoRejoin()
     local foundServer = nil
     local cursor = nil
     while not foundServer do
-        local url = "https://games.roblox.com/v1/games/" .. placeId .. "/servers/Public?sortOrder=Desc&limit=100"
-        if cursor then
-            url = url .. "&cursor=" .. cursor
-        end
-        local success, result = pcall(function()
-            return HttpService:JSONDecode(game:HttpGet(url))
-        end)
-        if success and result and result.data then
-            for _, server in ipairs(result.data) do
-                if server.playing <= 15 and server.id ~= currentJobId then
-                    foundServer = server.id
-                    break
-                end
-            end
-            if not foundServer and result.nextPageCursor then
-                cursor = result.nextPageCursor
-            else
-                break
-            end
-        else
-            break
-        end
-    end
-    if foundServer then
-        TeleportService:TeleportToPlaceInstance(placeId, foundServer, player)
-    else
         print("No suitable server found, teleporting to any server.")
         TeleportService:Teleport(placeId, player)
     end
