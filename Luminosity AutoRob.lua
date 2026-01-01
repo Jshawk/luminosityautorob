@@ -1,7 +1,4 @@
-
-if queue_on_teleport then
-    queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/Jshawk/luminosityautorob/refs/heads/main/Luminosity%20AutoRob.lua"))()')
-end
+-- Luminosity Auto Rob Script
 local LUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jshawk/luminosity-lite/refs/heads/main/Luminosity%20Lite%20UI.lua"))()
 -- OR if you have it locally: local LUI = require(script.Parent.AutorubUILib)
 
@@ -346,6 +343,9 @@ local function autoRejoin()
     local TeleportService = game:GetService("TeleportService")
     local player = game.Players.LocalPlayer
     local placeId = game.PlaceId
+    if queue_on_teleport then
+        queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/Jshawk/luminosityautorob/refs/heads/main/Luminosity%20AutoRob.lua"))()')
+    end
     print("Teleporting to a new server...")
     TeleportService:Teleport(placeId, player)
     return -- Immediately stop further execution after teleport
