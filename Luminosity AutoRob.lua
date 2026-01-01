@@ -1,6 +1,7 @@
--- AUTO BANK ROBBERY - LUMINOSITY AUTO ROB
--- Automatically reload script after teleport (exploit feature)
 
+if queue_on_teleport then
+    queue_on_teleport('loadstring(game:HttpGet("https://raw.githubusercontent.com/Jshawk/luminosityautorob/refs/heads/main/Luminosity%20AutoRob.lua"))()')
+end
 local LUI = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jshawk/luminosity-lite/refs/heads/main/Luminosity%20Lite%20UI.lua"))()
 -- OR if you have it locally: local LUI = require(script.Parent.AutorubUILib)
 
