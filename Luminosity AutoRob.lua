@@ -345,9 +345,9 @@ local function autoRejoin()
     local TeleportService = game:GetService("TeleportService")
     local player = game.Players.LocalPlayer
     local placeId = game.PlaceId
-        print("Teleporting to a new server...")
-        TeleportService:Teleport(placeId, player)
-        wait(10) -- Prevent spamming TeleportService
+    print("Teleporting to a new server...")
+    TeleportService:Teleport(placeId, player)
+    return -- Immediately stop further execution after teleport
 end
 
 
