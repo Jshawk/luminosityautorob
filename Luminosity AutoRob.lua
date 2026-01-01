@@ -345,17 +345,14 @@ end
 local function autoRejoin()
     print("🔄 Attempting to auto rejoin to a server with 15 or fewer players...")
     local TeleportService = game:GetService("TeleportService")
-    local HttpService = game:GetService("HttpService")
     local player = game.Players.LocalPlayer
     local placeId = game.PlaceId
-    local currentJobId = game.JobId
-    local foundServer = nil
-    local cursor = nil
-    while not foundServer do
-        print("No suitable server found, teleporting to any server.")
-        TeleportService:Teleport(placeId, player)
-    end
+    print("Teleporting to a new server...")
+    TeleportService:Teleport(placeId, player)
+    -- Add a delay to prevent spamming
+    wait(10)
 end
+
 
 local function executeRobbery()
     if not DEALER_POSITION then
